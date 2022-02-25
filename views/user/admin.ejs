@@ -1,0 +1,30 @@
+<%- include('../partials/header') -%>
+<%- include('../partials/navbar') -%>
+   <div class="container">
+    <div class="row mt-3">
+        <% users.forEach((user)=>{ %>
+            <div class="col-sm-6 col-md-4">
+                <div class="card">
+                    <div class="card-body">
+                        <img src="<%= '/images/'+user.avatar %>" style="width: 150px; height: 150px; border-radius: 50%;" alt="">
+                       
+                        <h5 class="card-title"><%= user.email %></h5>
+                        <% if(user.email!=="ahmad@gmail.com") { %>
+                            <button id="deleteBtn" data-id="<%=user.id%>" onclick="deleteUser()" class="btn btn-danger">
+                                Delete
+                            </button>
+                            <% }else{ %>
+                            <button hidden id="deleteBtn" data-id="<%=user.id%>" onclick="deleteUser()" class="btn btn-danger">
+                                Delete
+                            </button>
+                            <% }%>
+                    </div>
+                </div> 
+            </div>
+        <% })%>
+    </div>
+   </div>
+<%- include('../partials/footer') -%>
+
+  
+
